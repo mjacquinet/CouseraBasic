@@ -1,4 +1,4 @@
-##Part 2
+##Part 2 complete.R
 
 ## need for the count function
 library(plyr)
@@ -21,12 +21,13 @@ complete <- function(directory, id = 1:332) {
   completeDf <- data.frame(id=numeric(), nobs=numeric(), stringsAsFactors=FALSE)
   
   for(idCounter in id){
-    tempAdd<- c(idCounter, count(complete.cases(getmonitor(idCounter, directory)))[2,2])
+    tempData<-getmonitor(idCounter, directory)
+    tempAdd<- c(idCounter, count(complete.cases(tempData))[2,2])
     completeDf <- rbind(completeDf, tempAdd)
   }
-  
   names(completeDf)[1]="id"
   names(completeDf)[2]="nobs"
   
-  return(completeDf)
+  return(invisible())
 }
+
