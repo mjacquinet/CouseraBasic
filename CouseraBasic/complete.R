@@ -28,6 +28,6 @@ complete <- function(directory, id = 1:332) {
   names(completeDf)[1]="id"
   names(completeDf)[2]="nobs"
   
-  return(invisible())
+  return(completeDf)
 }
 
