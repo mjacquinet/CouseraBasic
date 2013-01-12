@@ -1,4 +1,4 @@
-##Part 1
+##Part 1 - getmonitor.R
 
 getmonitor <- function(id, directory, summarize = FALSE) {
   ## 'id' is a vector of length 1 indicating the monitor ID
@@ -34,6 +34,12 @@ getmonitor <- function(id, directory, summarize = FALSE) {
   path<- paste(directory, idChar, sep="/")
   
   data <- read.table(path, header=TRUE, sep=",", stringsAsFactors=TRUE)
+  
+  if(summarize==TRUE){
+    print(summary(data))
+  }
+   
+  return(data)
   
 }
 
