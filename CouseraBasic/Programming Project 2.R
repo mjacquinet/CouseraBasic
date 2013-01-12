@@ -42,7 +42,3 @@ getmonitor <- function(id, directory, summarize = FALSE) {
   return(data)
   
 }
-
-data <- getmonitor(101, "specdata", summarize = FALSE)
-
-head(data)
