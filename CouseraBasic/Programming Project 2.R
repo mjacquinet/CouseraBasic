@@ -18,7 +18,7 @@ getmonitor <- function(id, directory, summarize = FALSE) {
   idChar<-as.character(id)
   
   ## add leading zeros if needed
-  if(ncharidChar)==1){
+  if(nchar(idChar)==1){
     idChar<-paste("00", idChar, sep="")
   }else if(nchar(idChar)==2){
     idChar<-paste("0", idChar, sep="")
@@ -37,6 +37,6 @@ getmonitor <- function(id, directory, summarize = FALSE) {
   
 }
 
-data <- getmonitor("001.csv", "specdata", summarize = FALSE)
+data <- getmonitor(101, "specdata", summarize = FALSE)
 
 head(data)
