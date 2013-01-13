@@ -44,7 +44,7 @@ getmonitor <- function(id, directory, summarize = FALSE) {
 }
 
 
-##Part 2
+##Part 2 complete.R
 
 ## need for the count function
 library(plyr)
@@ -70,7 +70,6 @@ complete <- function(directory, id = 1:332) {
     tempAdd<- c(idCounter, count(complete.cases(getmonitor(idCounter, directory)))[2,2])
     completeDf <- rbind(completeDf, tempAdd)
   }
-  
   names(completeDf)[1]="id"
   names(completeDf)[2]="nobs"
   

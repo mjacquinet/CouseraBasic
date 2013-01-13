@@ -39,6 +39,5 @@ getmonitor <- function(id, directory, summarize = FALSE) {
     print(summary(data))
   }
    
-  return(data)
-  
+  return(data)  
 }

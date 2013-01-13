@@ -21,8 +21,7 @@ complete <- function(directory, id = 1:332) {
   completeDf <- data.frame(id=numeric(), nobs=numeric(), stringsAsFactors=FALSE)
   
   for(idCounter in id){
-    tempData<-getmonitor(idCounter, directory)
-    tempAdd<- c(idCounter, count(complete.cases(tempData))[2,2])
+    tempAdd<- c(idCounter, count(complete.cases(getmonitor(idCounter, directory)))[2,2])
     completeDf <- rbind(completeDf, tempAdd)
   }
   names(completeDf)[1]="id"
