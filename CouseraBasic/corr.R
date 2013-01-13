@@ -13,11 +13,15 @@ corr <- function(directory, threshold = 0) {
   
   fileCount<-length(list.files(directory, pattern = "\\.csv$"))
   
-  for(idCounter in 1:fileCount){
-    tempData<-getmonitor(idCounter, directory)
-    complete(directory= directory, id = idCounter)
-    if(!is.na(complete(directory= directory, id = idCounter)[,"nobs"]) && complete(directory= directory, id = idCounter)[,"nobs"]> threshold){
-      corData<- c(corData,cor(tempData[,"sulfate"], tempData[,"nitrate"], use="pairwise.complete.obs"))
+  if(fileCount>1){
+    compDf<-complete(directory= directory, id=1:fileCount)
+    
+    for(idCounter in 1:fileCount){
+      tempData<-getmonitor(idCounter, directory)
+      
+      if(!is.na(compDf[idCounter,"nobs"]) && compDf[idCounter,"nobs"]> threshold){
+        corData<- c(corData,cor(tempData[,"sulfate"], tempData[,"nitrate"], use="pairwise.complete.obs"))
+      }
     }
   }
   
