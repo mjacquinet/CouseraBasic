@@ -25,3 +25,4 @@ hist(outcome[, 23], main = "Pneumonia", xlab="30-day Death Rate", xlim= range(ou
 abline(v = median(outcome[,23], na.rm=TRUE), untf = FALSE, col = "red")
               
 #part 3
+table(outcome$State)
