@@ -25,4 +25,15 @@ hist(outcome[, 23], main = "Pneumonia", xlab="30-day Death Rate", xlim= range(ou
 abline(v = median(outcome[,23], na.rm=TRUE), untf = FALSE, col = "red")
               
 #part 3
-table(outcome$State)
+tempState <- data.frame(table(outcome$State))
+temp<-subset(outcome, table(outcome$State) > 20)
+tempState<-subset(tempState, Freq > 20, select = Var1)
+#forced the subset of states to be a character
+subsetStates<-c("AL","AR","AZ","CA","CO","CT","FL","GA","IA","ID","IL","IN","KS","KY","LA", "MA"
+                ,"MD","ME","MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH"
+                ,"OK","OR","PA","PR","SC","SD","TN","TX","UT","VA","WA","WI","WV","WY")
+
+outcome2 <- subset(outcome, State %in% subsetStates)
+
+
+death
