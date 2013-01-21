@@ -39,6 +39,3 @@ rankhospital <- function(state, outcome, num = "best") {
     return(outcomeTemp[num,"Hospital.Name"])  
   }
 }
-rankhospital("MD", "heart attack", "worst")
-rankhospital ("NY", "heart failure", num = "worst")
-rankhospital("MN", "heart attack", 5000)
