@@ -44,3 +44,21 @@ par(mfrow = c(1,1))
 boxplot(death ~ state, ylab="30-day Death Rate", main="Heart Attack 30-day Death Rate by State")
 
 #Part 4
+library(lattice)
+
+outcome <- read.csv("ProgAssignment3-data/outcome-of-care-measures.csv", colClasses = "character")
+hospital <- read.csv("ProgAssignment3-data/hospital-data.csv", colClasses = "character")
+
+outcome.hospital <- merge(outcome, hospital, by = "Provider.Number")
+
+death <- as.numeric(outcome.hospital[, 11])  ## Heart attack outcome
+npatient <- as.numeric(outcome.hospital[, 15])
+owner <- factor(outcome.hospital$Hospital.Ownership)
+
+xyplot(death ~ npatient| owner, xlab="Number of Patients Seen"
+       , ylab = "30-day Death Rate", main = "Heart Attack 30-day Death Rate by Ownership",
+       panel = panel.superpose,
+       panel = function(x, y) {
+         panel.lmline(x, y)
+        }
+       )
