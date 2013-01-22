@@ -27,8 +27,6 @@ best <- function(state, outcome) {
   
   ## Return hospital name in that state with lowest 30-day death
   ## rate
-  state = "NY"
-  outcome.number<-23
   outcomeTemp<-subset(outcomedata, State == state)
   outcomeTemp<-outcomeTemp[order(outcomeTemp[,outcome.number], outcomeTemp[,"Hospital.Name"]),]
   

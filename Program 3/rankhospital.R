@@ -28,7 +28,7 @@ rankhospital <- function(state, outcome, num = "best") {
   ## Return hospital name in that state with lowest 30-day death
   ## rate
   outcomeTemp<-subset(outcomedata, State == state)
-  outcomeTemp<-subset(outcomeTemp, outcomeTemp[,11] != "Not Available")
+  outcomeTemp<-subset(outcomeTemp, outcomeTemp[,outcome.number] != "Not Available")
   outcomeTemp<-outcomeTemp[order(outcomeTemp[,outcome.number], outcomeTemp[,"Hospital.Name"], na.last = TRUE),]
   
   #check if best, worst, or an integer and that the num isn't greater than the number of rows
