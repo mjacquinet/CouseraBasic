@@ -1,6 +1,9 @@
 best <- function(state, outcome) {
   ## Read outcome data
   outcomedata <- read.csv("ProgAssignment3-data/outcome-of-care-measures.csv", colClasses = "character")
+  outcomedata[, 11] <- as.numeric(outcomedata[, 11])
+  outcomedata[, 17] <- as.numeric(outcomedata[, 17])
+  outcomedata[, 23] <- as.numeric(outcomedata[, 23])
   
   ## Check that state and outcome are valid
   if (outcome=="heart attack"){
@@ -24,6 +27,8 @@ best <- function(state, outcome) {
   
   ## Return hospital name in that state with lowest 30-day death
   ## rate
+  state = "NY"
+  outcome.number<-23
   outcomeTemp<-subset(outcomedata, State == state)
   outcomeTemp<-outcomeTemp[order(outcomeTemp[,outcome.number], outcomeTemp[,"Hospital.Name"]),]
   

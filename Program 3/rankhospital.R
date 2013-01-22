@@ -1,6 +1,9 @@
 rankhospital <- function(state, outcome, num = "best") {
   ## Read outcome data
   outcomedata <- read.csv("ProgAssignment3-data/outcome-of-care-measures.csv", colClasses = "character")
+  outcomedata[, 11] <- as.numeric(outcomedata[, 11])
+  outcomedata[, 17] <- as.numeric(outcomedata[, 17])
+  outcomedata[, 23] <- as.numeric(outcomedata[, 23])
   
   ## Check that state and outcome are valid
   if (outcome=="heart attack"){
