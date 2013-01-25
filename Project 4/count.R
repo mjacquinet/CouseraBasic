@@ -14,7 +14,7 @@ count <- function(cause = NULL) {
     causeString <- "[cC]ause: [sS]tabbing"
   }else if(cause=="unknown"){
     causeString <- "[cC]ause: [uU]nknown"
-}
+  }
   
   ## Check that specific "cause" is allowed; else throw error
   ## Read "homicides.txt" data file
@@ -26,6 +26,3 @@ count <- function(cause = NULL) {
   ## Return integer containing count of homicides for that cause
   return(length(countVector))
 }
-
-
-count("ashpyxiation")
