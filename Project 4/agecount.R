@@ -12,5 +12,3 @@ agecount <- function(age = NULL) {
   ## Return integer containing count of homicides for that age
   return(length(countVector))
 }
-
-agecount(3)
